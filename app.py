@@ -4,6 +4,7 @@ from flask import Flask, request
 from pymessenger.bot import Bot
 import yaml
 import pdb
+import os
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 
