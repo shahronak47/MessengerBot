@@ -47,7 +47,7 @@ def receive_message():
                     incoming_msg = message.get('message')['text']
                     #print(incoming_msg)
                     response_sent_text = chatbot.get_response(incoming_msg)
-                    if response_sent_text.confidence > 0.9 :
+                    if response_sent_text.confidence > 0.1 :
                     #print(response_sent_text)
                         send_message(recipient_id, str(response_sent_text))
                     else :
