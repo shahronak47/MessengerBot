@@ -39,7 +39,7 @@ def receive_message():
        for event in output['entry']:
           messaging = event['messaging']
           for message in messaging:
-            if message.get('message'):
+            if message.get('message') :
                 #Facebook Messenger ID for user so we know where to send response back to
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):
@@ -47,8 +47,11 @@ def receive_message():
                     incoming_msg = message.get('message')['text']
                     #print(incoming_msg)
                     response_sent_text = chatbot.get_response(incoming_msg)
+                    if response_sent_text.confidence > 0.9 :
                     #print(response_sent_text)
-                    send_message(recipient_id, str(response_sent_text))
+                        send_message(recipient_id, str(response_sent_text))
+                    else :
+                        send_message(recipient_id, 'Sorry I did not get you. ')
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
                     response_sent_nontext = get_message()
