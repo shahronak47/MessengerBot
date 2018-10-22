@@ -11,16 +11,16 @@ from wit import Wit
 
 app = Flask(__name__)
 
-yml_file_path = 'C:\\Users\\Ronak Shah\\OneDrive\\MessengerBot\\keys.yml'
-with open(yml_file_path, 'r') as f:
-    content = yaml.load(f)
-ACCESS_TOKEN = content['ACCESS_TOKEN']
-VERIFY_TOKEN = content['VERIFY_TOKEN']
-WIT_TOKEN = content['WIT_TOKEN']
+#yml_file_path = 'C:\\Users\\Ronak Shah\\OneDrive\\MessengerBot\\keys.yml'
+#with open(yml_file_path, 'r') as f:
+#    content = yaml.load(f)
+#ACCESS_TOKEN = content['ACCESS_TOKEN']
+#VERIFY_TOKEN = content['VERIFY_TOKEN']
+#WIT_TOKEN = content['WIT_TOKEN']
 
-#ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
-#VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
-#WIT_TOKEN = os.environ['WIT_TOKEN']
+ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+WIT_TOKEN = os.environ['WIT_TOKEN']
 
 client = Wit(access_token=WIT_TOKEN)
 bot = Bot(ACCESS_TOKEN)
@@ -52,7 +52,7 @@ def receive_message():
                     incoming_msg = message.get('message')['text']
                     #print(incoming_msg)
                     response_sent_text = chatbot.get_response(incoming_msg)
-                    if response_sent_text.confidence > 0.1 :
+                    if response_sent_text.confidence > 0.9 :
                     #print(response_sent_text)
                         send_message(recipient_id, str(response_sent_text))
                     else :
