@@ -26,7 +26,7 @@ msgpack-python==0.4.8
 multidict==4.1.0
 murmurhash==0.28.0
 ngrok==0.0.1
-nltk==3.2.5
+nltk==3.4.5
 nsetools==1.0.5
 numpy==1.13.3
 oauthlib==2.0.6
